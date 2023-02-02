@@ -13,7 +13,7 @@ CocoaPods is a package manager for iOS that makes it easy to manage dependencies
 * Open Terminal on your Mac
 * Run the following command:
 
-(sudo gem install cocoapods)
+```sudo gem install cocoapods```
 
 * Wait for the installation to complete.
 * Installing the Weather App:
@@ -22,7 +22,7 @@ CocoaPods is a package manager for iOS that makes it easy to manage dependencies
 * Open Terminal and navigate to the root folder of the Weather App.
 * Run the following command:
 
-(pod install)
+```pod install```
 
 * Wait for CocoaPods to complete the installation of the dependencies.
 * Open the Weather App workspace file (Weather.xcworkspace) in Xcode.
