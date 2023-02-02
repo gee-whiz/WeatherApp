@@ -30,4 +30,4 @@ CocoaPods is a package manager for iOS that makes it easy to manage dependencies
 * Build and run the app by clicking the Run button or using the keyboard shortcut (⌘ + R)
 
 ## Conclusion:
-The Weather iOS App is a simple and straightforward app that provides accurate weather information to users. It is meant for educational purpose only. 
+The Weather iOS App is a simple and straightforward app that provides accurate weather information to users. It is meant to demonstrate coding skills and educational purpose only.  
