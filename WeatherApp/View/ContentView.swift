@@ -16,16 +16,12 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            
-            ForEach(0..<self.weatherViewModel.todayWeather.count, id: \.self) { i in
-                Text(String(self.weatherViewModel.todayWeather[i].tempC))
+            if let location = self.weatherViewModel.location {
+               HeaderView(location: location)
             }
-
+            CurrentWeatherView()
+            Spacer()
         }
-        .padding()
     }
 }
 

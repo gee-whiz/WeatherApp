@@ -12,6 +12,7 @@ import CoreLocationUI
 class WeatherViewModel: ObservableObject {
     
     @Published var currentWeather: CurrentWeather?
+    @Published var location: Location?
     @Published var todayWeather: [HourlyWeather] = []
     @Published var forecastWeather: DailyWeather?
     
@@ -44,6 +45,7 @@ class WeatherViewModel: ObservableObject {
                 $0.isDay == 0
             }
             forecastWeather = weather.forecast.forecastday[0].day
+            location = weather.location
            }
     
     }
