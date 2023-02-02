@@ -10,8 +10,8 @@ import Foundation
 struct ForecastDay: Decodable {
     let date: String
     let dateEpoch: Int
-    let day: Day
-    let hour: [Hour]
+    let day: DailyWeather
+    let hour: [HourlyWeather]
     
     enum CodingKeys: String, CodingKey {
         case date

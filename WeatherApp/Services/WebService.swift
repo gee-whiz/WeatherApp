@@ -12,21 +12,20 @@ final class WebService:  WeatherServiceProtocol {
     func request<T: Decodable>(
             endpoint: String,
             method: String,
-            parameters: [String: Any]?,
+            query:  String?,
             completion: @escaping (Result<T, Error>) -> Void
         ) {
             // Build the URL
-            let url = URL(string: endpoint)!
+            var urlString = endpoint
+            if let query = query {
+               urlString = urlString + "?" + query
+            }
+            let url = URL(string: urlString)!
 
             // Configure the request
             var request = URLRequest(url: url)
             request.httpMethod = method
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-
-            // Add parameters to the request body if needed
-            if let parameters = parameters {
-                request.httpBody = try! JSONSerialization.data(withJSONObject: parameters)
-            }
 
             // Make the request
             let task = URLSession.shared.dataTask(with: request) { data, response, error in

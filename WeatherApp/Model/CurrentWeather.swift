@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Current: Decodable {
+struct CurrentWeather: Decodable {
     let lastUpdatedEpoch: Int
     let lastUpdated: String
     let tempC: Double

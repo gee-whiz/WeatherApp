@@ -11,7 +11,7 @@ protocol WeatherServiceProtocol {
     func request<T: Decodable>(
            endpoint: String,
            method: String,
-           parameters: [String: Any]?,
+           query: String?,
            completion: @escaping (Result<T, Error>) -> Void
        )
 }

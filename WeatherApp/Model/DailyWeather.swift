@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Day: Decodable {
+struct DailyWeather: Decodable {
     let maxtempC: Double
     let mintempC: Double
     let maxwindMph: Double?

@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Hour: Decodable {
+struct HourlyWeather: Decodable {
     let timeEpoch: Int
     let time: String
     let tempC: Double

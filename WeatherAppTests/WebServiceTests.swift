@@ -30,7 +30,7 @@ final class WebServiceTests: XCTestCase {
          
          let expectation = self.expectation(description: "Wait for response")
          
-         webService.request(endpoint: endpoint, method: method, parameters: nil) { (result: Result<Day, Error>) in
+         webService.request(endpoint: endpoint, method: method, query: "") { (result: Result<DailyWeather, Error>) in
              switch result {
              case .success(let day):
                  XCTAssertNotNil(day)

@@ -8,19 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    @ObservedObject var weatherViewModel: WeatherViewModel
+
+      init(weatherRepository: WeatherRepositoryProtocol) {
+          self.weatherViewModel = WeatherViewModel(weatherRepository: weatherRepository)
+      }
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            
+            ForEach(0..<self.weatherViewModel.todayWeather.count, id: \.self) { i in
+                Text(String(self.weatherViewModel.todayWeather[i].tempC))
+            }
+
         }
         .padding()
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}
+
