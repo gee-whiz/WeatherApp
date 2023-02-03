@@ -18,7 +18,7 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     @Published var forecastWeather = [DailyForecastViewModel]()
     @Published var region: MKCoordinateRegion
     @Published var errorMesage: String?
-
+    
     private let locationManager = CLLocationManager()
     private let weatherRepository: WeatherRepositoryProtocol
     
@@ -30,22 +30,16 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         requestLocation()
     }
     
-    
-    func getWeather(_ coordinates: CLLocationCoordinate2D) async {
+    private func getWeather(_ coordinates: CLLocationCoordinate2D) async {
         let location = "\(coordinates.latitude),\(coordinates.longitude)"
-            weatherRepository.fetchForecast(location: location) { [weak self] (result) in
-                switch result {
-                case .success(let weatherData):
-                    self?.processWeatherData(weatherData)
-                case .failure(let error):
-                    self?.errorMesage = "Failed to fetch weather data: \(error.localizedDescription)"
-                }
+        weatherRepository.fetchForecast(location: location) { [weak self] (result) in
+            switch result {
+            case .success(let weatherData):
+                self?.processWeatherData(weatherData)
+            case .failure(let error):
+                self?.errorMesage = "Failed to fetch weather data: \(error.localizedDescription)"
             }
-    }
-    
-    private func requestLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        }
     }
     
     private func processWeatherData(_ weather: Weather) {
@@ -59,7 +53,11 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
             forecastWeather = weather.forecast.forecastday.map(DailyForecastViewModel.init)
             location = weather.location
         }
+    }
     
+    private func requestLocation() {
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

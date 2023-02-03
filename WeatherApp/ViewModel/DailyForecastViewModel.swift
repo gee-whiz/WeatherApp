@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 class DailyForecastViewModel {
     
     private var forecastWeather: ForecastDay
@@ -17,7 +16,6 @@ class DailyForecastViewModel {
     init(forecastWeather: ForecastDay) {
         self.forecastWeather = forecastWeather
     }
-    
     
     var day: String {
         let date = Date.dateFromEpoch(dateEpoch: forecastWeather.dateEpoch)
@@ -43,7 +41,7 @@ class DailyForecastViewModel {
         } else {
             return ""
         }
-       
+        
     }
     
 }
