@@ -70,6 +70,10 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         self.errorMesage = "Failed to update location: \(error.localizedDescription)"
     }
     
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        manager.startUpdatingLocation()
+    }
+    
 }
 
 
