@@ -19,7 +19,7 @@ class WeatherRepository: WeatherRepositoryProtocol {
         let apiKey = ProcessInfo.processInfo.environment["API_KEY"]
         #endif
         
-        let queryString = "key=\(apiKey)&q=\(location)&days=1&aqi=no&alerts=no"
+        let queryString = "key=\(apiKey)&q=\(location)&days=5&aqi=no&alerts=no"
         webService.request(
             endpoint: baseUrl,
             method: "GET",

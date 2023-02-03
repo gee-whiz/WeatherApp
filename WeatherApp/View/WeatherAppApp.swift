@@ -11,8 +11,7 @@ import SwiftUI
 struct WeatherAppApp: App {
     var body: some Scene {
         WindowGroup {
-            let weatherRepository = WeatherRepository()
-            ContentView(weatherRepository: weatherRepository)
+            ContentView()
         }
     }
 }

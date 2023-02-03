@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  WeatherApp
+
+  Created by George Kapoya on 3.2.2023.
+  
+*/
+
+
+"wind" = "Wind";
+"humidity" = "Humidity";
+"precipitation" = "Precipitation";
+"today" = "Today";
+"forecast" = "Next 5 days";

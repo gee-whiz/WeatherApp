@@ -13,6 +13,7 @@ struct DailyWeather: Decodable {
     let maxwindMph: Double?
     let avghumidity: Double?
     let dailyChanceOfRain: Int?
+    let avgtemp: Double?
     let condition: Condition?
     
     enum CodingKeys: String, CodingKey {
@@ -20,6 +21,7 @@ struct DailyWeather: Decodable {
         case mintempC = "mintemp_c"
         case maxwindMph = "maxwind_mph"
         case avghumidity = "avghumidity"
+        case avgtemp = "avgtemp_c"
         case dailyChanceOfRain = "daily_chance_of_rain"
         case condition = "condition"
     }

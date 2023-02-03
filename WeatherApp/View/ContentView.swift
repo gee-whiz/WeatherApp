@@ -8,26 +8,36 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var weatherViewModel: WeatherViewModel
-
-      init(weatherRepository: WeatherRepositoryProtocol) {
-          self.weatherViewModel = WeatherViewModel(weatherRepository: weatherRepository)
-      }
     
+    @ObservedObject private var weatherViewModel = WeatherViewModel()
+     @State private var selectedOption = 0
+
     var body: some View {
-        
-        VStack {
-            if let location = self.weatherViewModel.location {
-               HeaderView(location: location)
+        ScrollView(.vertical) {
+            VStack {
+                if let location = self.weatherViewModel.location {
+                    HeaderView(location: location)
+                }
+                if let currentWeather = self.weatherViewModel.currentWeather {
+                    CurrentWeatherView(currentWeather: currentWeather)
+                    ConditionView(currentWeather: currentWeather)
+                }
+                VStack() {
+                      Picker(selection: $selectedOption, label: Text("")) {
+                          Text("today").tag(0)
+                          Text("forecast").tag(1)
+                      }.pickerStyle(SegmentedPickerStyle())
+                      if selectedOption == 0 {
+                          HourlyView(hours: self.weatherViewModel.todayWeather)
+                         MapView(region: weatherViewModel.region)
+                      } else {
+                          DailyView(forecastWeather: self.weatherViewModel.forecastWeather)
+                      }
+                }.padding()
+                Spacer()
             }
-            
-            if let currentWeather = self.weatherViewModel.currentWeather {
-                CurrentWeatherView(currentWeather: currentWeather)
-                ConditionView(currentWeather: currentWeather)
-            }
-           
-            Spacer()
-        }
+            .padding()
+        } .preferredColorScheme(.dark)
     }
 }
 

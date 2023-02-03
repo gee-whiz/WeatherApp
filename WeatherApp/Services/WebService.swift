@@ -15,19 +15,16 @@ final class WebService:  WeatherServiceProtocol {
             query:  String?,
             completion: @escaping (Result<T, Error>) -> Void
         ) {
-            // Build the URL
             var urlString = endpoint
             if let query = query {
                urlString = urlString + "?" + query
             }
             let url = URL(string: urlString)!
 
-            // Configure the request
             var request = URLRequest(url: url)
             request.httpMethod = method
             request.setValue("application/json", forHTTPHeaderField: "Content-Type")
 
-            // Make the request
             let task = URLSession.shared.dataTask(with: request) { data, response, error in
                 // Check for network errors
                 if let error = error {

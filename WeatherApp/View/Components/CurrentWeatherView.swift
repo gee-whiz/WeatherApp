@@ -9,33 +9,24 @@ import SwiftUI
 
 struct CurrentWeatherView: View {
     
-    var currentWeather: CurrentWeather
+    var currentWeather: CurrentWeatherViewModel
     
     var body: some View {
         HStack() {
             VStack(alignment: .leading) {
-                Text("\(String(currentWeather.tempC))°")
+                Text(currentWeather.tempreture)
                     .font(.largeTitle)
                     .fontWeight(.bold)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
-                Text(String(currentWeather.condition.text))
+                Text(currentWeather.condition)
                     .font(.caption)
                     .fontWeight(.light)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.center)
             }
             Spacer()
-            AsyncImage(url: URL(string: "https:\(String(currentWeather.condition.icon))")) { phase in
-                switch phase {
-                case .success(let image):
-                    image
-                        .resized()
-                default:
-                    Image(systemName: "photo.circle")
-                        .resized().foregroundColor(.gray)
-                }
-            }
+            WebImageView(urlString: currentWeather.iconUrl)
         }.padding()
     }
 }
