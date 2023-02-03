@@ -26,9 +26,14 @@ struct HeaderView: View {
                     .multilineTextAlignment(.leading)
             }
             Spacer()
-            Image(systemName: "square.grid.2x2.fill")
-                .imageScale(.large)
-                .foregroundColor(.primary)
+            Button {
+                
+            } label: {
+                Image(systemName: "magnifyingglass")
+                    .imageScale(.large)
+                    .foregroundColor(.primary)
+            }
+
         }.padding()
     }
 }

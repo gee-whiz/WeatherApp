@@ -8,13 +8,34 @@
 import SwiftUI
 
 struct CurrentWeatherView: View {
+    
+    var currentWeather: CurrentWeather
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-    }
-}
-
-struct CurrentWeatherView_Previews: PreviewProvider {
-    static var previews: some View {
-        CurrentWeatherView()
+        HStack() {
+            VStack(alignment: .leading) {
+                Text("\(String(currentWeather.tempC))°")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.center)
+                Text(String(currentWeather.condition.text))
+                    .font(.caption)
+                    .fontWeight(.light)
+                    .foregroundColor(.primary)
+                    .multilineTextAlignment(.center)
+            }
+            Spacer()
+            AsyncImage(url: URL(string: "https:\(String(currentWeather.condition.icon))")) { phase in
+                switch phase {
+                case .success(let image):
+                    image
+                        .resized()
+                default:
+                    Image(systemName: "photo.circle")
+                        .resized().foregroundColor(.gray)
+                }
+            }
+        }.padding()
     }
 }

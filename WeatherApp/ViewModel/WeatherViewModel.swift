@@ -41,6 +41,7 @@ class WeatherViewModel: ObservableObject {
     private func processWeatherData(_ weather: Weather) {
         Task { @MainActor in
             currentWeather = weather.current
+            print("!!icocn \(currentWeather?.condition)")
             todayWeather = weather.forecast.forecastday[0].hour.filter {
                 $0.isDay == 0
             }

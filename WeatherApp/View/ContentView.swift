@@ -15,11 +15,17 @@ struct ContentView: View {
       }
     
     var body: some View {
+        
         VStack {
             if let location = self.weatherViewModel.location {
                HeaderView(location: location)
             }
-            CurrentWeatherView()
+            
+            if let currentWeather = self.weatherViewModel.currentWeather {
+                CurrentWeatherView(currentWeather: currentWeather)
+                ConditionView(currentWeather: currentWeather)
+            }
+           
             Spacer()
         }
     }

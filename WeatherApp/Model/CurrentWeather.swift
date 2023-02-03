@@ -16,6 +16,7 @@ struct CurrentWeather: Decodable {
     let windMph: Double
     let humidity: Int
     let cloud: Int
+    let precip: Double
     
     enum CodingKeys: String, CodingKey {
         case lastUpdatedEpoch = "last_updated_epoch"
@@ -24,6 +25,7 @@ struct CurrentWeather: Decodable {
         case isDay = "is_day"
         case condition
         case windMph = "wind_mph"
+        case precip = "precip_mm"
         case humidity
         case cloud
     }
