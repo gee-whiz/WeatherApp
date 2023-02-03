@@ -10,7 +10,7 @@ import SwiftUI
 struct HeaderView: View {
     
     @State var location: Location
-    
+    @Binding var selectedOption: Int
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading) {
@@ -27,19 +27,18 @@ struct HeaderView: View {
             }
             Spacer()
             Button {
-                
+                selectedOption = selectedOption == 1 ? 0 : 1
             } label: {
-                Image(systemName: "magnifyingglass")
+                Image(systemName: selectedOption == 1 ? "square.grid.2x2.fill" : "rectangle.grid.1x2.fill")
                     .imageScale(.large)
                     .foregroundColor(.primary)
             }
-
         }.padding()
     }
 }
 
 struct HeaderView_Previews: PreviewProvider {
     static var previews: some View {
-        HeaderView(location: Location(name: "Helsinki", lat: 1.0, lon: 3.3, localtime: "12 September, Monday")).previewLayout(.sizeThatFits)
+        HeaderView(location: Location(name: "Helsinki", lat: 1.0, lon: 3.3, localtime: "12 September, Monday"), selectedOption: .constant(0)).previewLayout(.sizeThatFits)
     }
 }
