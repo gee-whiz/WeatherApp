@@ -16,7 +16,7 @@ struct ConditionView: View {
             HStack {
                 ConditionItemView(title: currentWeather.windMph,
                                   iconName: "wind",
-                                  subTitle: "wind")
+                                  subTitle: "wind") // localised string
                 ConditionItemView(title: currentWeather.humidity,
                                   iconName: "humidity",
                                   subTitle: "humidity")

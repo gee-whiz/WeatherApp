@@ -9,6 +9,11 @@
 
 "wind" = "Wind";
 "humidity" = "Humidity";
+"rain" = "Rain";
 "precipitation" = "Precipitation";
 "today" = "Today";
 "forecast" = "Next 5 days";
+"min" = "Min";
+"max" = "Max";
+"loading" = "Loading...";
+

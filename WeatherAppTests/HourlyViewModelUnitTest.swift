@@ -19,7 +19,7 @@ final class HourlyViewModelUnitTest: XCTestCase {
             )
             let viewModel = HourlyViewModel(weather: weather)
             
-            XCTAssertEqual(viewModel.tempreture, "-3.0°")
+            XCTAssertEqual(viewModel.tempreture, "-3.0°C")
             XCTAssertEqual(viewModel.time, "2 AM")
             XCTAssertEqual(viewModel.iconUrl, "https://cdn.weatherapi.com/weather/64x64/day/119.png")
         }

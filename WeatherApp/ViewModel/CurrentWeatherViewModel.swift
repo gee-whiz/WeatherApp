@@ -16,7 +16,7 @@ class CurrentWeatherViewModel {
     }
     
     var tempreture: String {
-        return "\(String(format: "%.0f", currentWeather.tempC))°"
+        return "\(String(format: "%.0f", currentWeather.tempC))°C"
     }
     
     var condition: String {

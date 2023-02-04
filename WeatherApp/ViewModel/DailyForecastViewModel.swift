@@ -7,7 +7,7 @@
 
 import Foundation
 
-class DailyForecastViewModel {
+class DailyForecastViewModel: Identifiable {
     
     private var forecastWeather: ForecastDay
     
@@ -17,18 +17,46 @@ class DailyForecastViewModel {
         self.forecastWeather = forecastWeather
     }
     
+    var dailyChanceOfRain: String {
+        if let chanceOfRain = forecastWeather.day.dailyChanceOfRain {
+            return "\(String(chanceOfRain))%"
+        }
+        return "-"
+    }
+    
     var day: String {
         let date = Date.dateFromEpoch(dateEpoch: forecastWeather.dateEpoch)
         let humanReadableDay = date.humanReadableDay()
         return humanReadableDay
     }
     
+    var humidity: String {
+        if let humidity = forecastWeather.day.avghumidity {
+            return "\(String(format: "%.0f", humidity))%"
+        }
+        return "-"
+    }
+    
+    var condition: String {
+        if let text = forecastWeather.day.condition?.text {
+            return "\(String(text))"
+        }
+        return "-"
+    }
+    
     var minTemp: String {
-        return "\(String(forecastWeather.day.mintempC))°"
+        return "\(String(format: "%.0f", forecastWeather.day.mintempC))°C"
     }
     
     var maxTemp: String {
-        return "\(String(forecastWeather.day.maxtempC))°"
+        return "\(String(format: "%.0f", forecastWeather.day.maxtempC))°C"
+    }
+    
+    var avgTemp: String {
+        if let avg = forecastWeather.day.avgtemp {
+            return "\(String(format: "%.0f", avg))°C"
+        }
+        return "-"
     }
     
     var sliderPosition: Double {

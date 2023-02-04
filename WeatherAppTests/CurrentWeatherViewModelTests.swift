@@ -21,7 +21,7 @@ final class CurrentWeatherViewModelTests: XCTestCase {
     }
     
     func test_temperature_returnsCorrectValue() {
-        XCTAssertEqual(sut.tempreture, "23°")
+        XCTAssertEqual(sut.tempreture, "23°C")
     }
     
     func test_condition_returnsCorrectValue() {

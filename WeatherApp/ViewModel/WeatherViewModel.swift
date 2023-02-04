@@ -7,37 +7,45 @@
 
 import Foundation
 import CoreLocation
-import MapKit
 import SwiftUI
 
-class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
+
+/* The WeatherViewModel class is the main entry point for displaying weather information in the app.
+This class acts as a bridge between the WeatherRepository and the Views.
+ It is responsible for managing the state of the weather data, location, and error messages.
+ */
+
+class WeatherViewModel: NSObject, ObservableObject {
     
     @Published var currentWeather: CurrentWeatherViewModel?
-    @Published var location: Location?
+    @Published var location: LocationViewModel?
     @Published var todayWeather: [HourlyViewModel] = []
     @Published var forecastWeather = [DailyForecastViewModel]()
-    @Published var region: MKCoordinateRegion
-    @Published var errorMesage: String?
+    @Published var errorMessage: String = ""
+    @Published var viewState: ViewState = .initial
     
-    private let locationManager = CLLocationManager()
     private let weatherRepository: WeatherRepositoryProtocol
+    private let locationManager = LocationManager()
     
     init(weatherRepository: WeatherRepositoryProtocol = WeatherRepository()) {
         self.weatherRepository = weatherRepository
-        self.region = MKCoordinateRegion(center: .init(), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
         super.init()
         locationManager.delegate = self
-        requestLocation()
+        locationManager.requestLocation()
     }
     
-    private func getWeather(_ coordinates: CLLocationCoordinate2D) async {
+    
+    /* Method to get the weather for the given coordinates.
+     - Parameter coordinates: The coordinates of the location for which to get the weather.
+     */
+    func getWeather(_ coordinates: CLLocationCoordinate2D) async {
         let location = "\(coordinates.latitude),\(coordinates.longitude)"
         weatherRepository.fetchForecast(location: location) { [weak self] (result) in
             switch result {
             case .success(let weatherData):
                 self?.processWeatherData(weatherData)
             case .failure(let error):
-                self?.errorMesage = "Failed to fetch weather data: \(error.localizedDescription)"
+                self?.processErrorState(error)
             }
         }
     }
@@ -45,35 +53,38 @@ class WeatherViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     private func processWeatherData(_ weather: Weather) {
         Task { @MainActor in
             currentWeather = CurrentWeatherViewModel(currentWeather: weather.current)
-            
+            errorMessage = ""
+            self.viewState = .loaded
             let today =  weather.forecast.forecastday[0].hour.filter {
                 $0.isDay == 0
             }
             todayWeather = today.map(HourlyViewModel.init)
             forecastWeather = weather.forecast.forecastday.map(DailyForecastViewModel.init)
-            location = weather.location
+            location = LocationViewModel.init(location: weather.location)
         }
     }
     
-    private func requestLocation() {
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+    private func processErrorState(_  error: Error) {
+        Task { @MainActor in
+            self.errorMessage = fetchWeatherError
+            self.viewState = .failure
+        }
     }
     
+}
+
+extension WeatherViewModel: LocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let currentLocation = locations.last else { return }
-        region.center = currentLocation.coordinate
         Task { await self.getWeather(currentLocation.coordinate) }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.errorMesage = "Failed to update location: \(error.localizedDescription)"
+        self.errorMessage = updateLocationError
+        self.viewState = .failure
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         manager.startUpdatingLocation()
     }
-    
 }
-
-

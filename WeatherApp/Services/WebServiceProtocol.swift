@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol WeatherServiceProtocol {
+protocol WebServiceProtocol {
     func request<T: Decodable>(
            endpoint: String,
            method: String,

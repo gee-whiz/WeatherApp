@@ -14,7 +14,6 @@ extension Date {
 
     func humanReadableDay() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
         dateFormatter.dateFormat = "EEEE"
         let day = dateFormatter.string(from: self)
 
@@ -25,9 +24,15 @@ extension Date {
         }
     }
     
+    func humanReadableDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd, MMM, EEEE"
+        let date = dateFormatter.string(from: self)
+        return date
+    }
+    
     func humanReadableHour() -> String {
            let dateFormatter = DateFormatter()
-           dateFormatter.locale = Locale(identifier: "en_US_POSIX")
            dateFormatter.dateFormat = "h a"
            let hour = dateFormatter.string(from: self)
            return hour

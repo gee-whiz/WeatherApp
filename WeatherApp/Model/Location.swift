@@ -11,12 +11,13 @@ struct Location: Decodable {
     let name: String
     let lat: Double
     let lon: Double
-    let localtime: String
+    let localtime: Int
+   
     
     enum CodingKeys: String, CodingKey {
         case name
         case lat
         case lon
-        case localtime
+        case localtime =  "localtime_epoch"
     }
 }

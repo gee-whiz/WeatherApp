@@ -14,5 +14,4 @@ extension Image {
             .scaledToFit()
             .frame(maxWidth: 80)
     }
-    
 }

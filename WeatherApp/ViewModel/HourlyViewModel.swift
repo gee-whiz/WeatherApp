@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HourlyViewModel {
+class HourlyViewModel: Identifiable {
     
     private var weather: HourlyWeather
     let id = UUID()
@@ -17,7 +17,7 @@ class HourlyViewModel {
     }
 
     var tempreture: String {
-        return "\(String(weather.tempC))°"
+        return "\(String(weather.tempC))°C"
     }
     
     var time: String {

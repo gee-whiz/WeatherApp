@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HeaderView: View {
     
-    @State var location: Location
+    @State var location: LocationViewModel
     @Binding var selectedOption: Int
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
@@ -19,7 +19,7 @@ struct HeaderView: View {
                     .fontWeight(.semibold)
                     .foregroundColor(.primary)
                     .multilineTextAlignment(.leading)
-                Text(location.localtime)
+                Text(location.localTime)
                     .font(.caption)
                     .fontWeight(.light)
                     .foregroundColor(.primary)
@@ -34,11 +34,5 @@ struct HeaderView: View {
                     .foregroundColor(.primary)
             }
         }.padding()
-    }
-}
-
-struct HeaderView_Previews: PreviewProvider {
-    static var previews: some View {
-        HeaderView(location: Location(name: "Helsinki", lat: 1.0, lon: 3.3, localtime: "12 September, Monday"), selectedOption: .constant(0)).previewLayout(.sizeThatFits)
     }
 }
