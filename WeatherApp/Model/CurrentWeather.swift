@@ -14,7 +14,6 @@ struct CurrentWeather: Decodable {
     let windMph: Double
     let humidity: Int
     let precip: Double
-    
     enum CodingKeys: String, CodingKey {
         case tempC = "temp_c"
         case isDay = "is_day"

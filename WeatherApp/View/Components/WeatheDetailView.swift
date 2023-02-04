@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct WeatheDetailView: View {
-    
     var forecastWeather: DailyForecastViewModel
     @Environment(\.dismiss) var dismiss
-    
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
@@ -27,8 +25,8 @@ struct WeatheDetailView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "xmark.square")
-                            .tint(.white)
+                        Image(systemName: "xmark")
+                            .tint(.primary)
                             .font(.title)
                     }
                 }
@@ -37,7 +35,6 @@ struct WeatheDetailView: View {
                            startPoint: .topLeading,
                            endPoint: .bottomTrailing
                 ), title: forecastWeather.iconUrl)
-              
                 VStack(alignment: .center) {
                     Text(forecastWeather.avgTemp)
                         .font(.largeTitle)
@@ -106,15 +103,11 @@ struct WeatheDetailView: View {
                     }
                 }
                 Divider()
-               
                 Spacer()
             }.padding(32)
-            
         }
-        
     }
 }
-
 
 struct CircleGradient: View {
     var gradient: LinearGradient
@@ -134,4 +127,3 @@ struct CircleGradient: View {
         }
     }
 }
-

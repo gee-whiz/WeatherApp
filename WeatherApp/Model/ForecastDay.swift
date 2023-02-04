@@ -12,7 +12,6 @@ struct ForecastDay: Decodable {
     let dateEpoch: Int
     let day: DailyWeather
     let hour: [HourlyWeather]
-    
     enum CodingKeys: String, CodingKey {
         case date
         case dateEpoch = "date_epoch"

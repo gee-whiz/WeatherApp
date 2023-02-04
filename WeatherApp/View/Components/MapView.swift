@@ -9,16 +9,18 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
-    
     @State var location: LocationViewModel
     @State var currentWeather: CurrentWeatherViewModel
-    @State var region = MKCoordinateRegion(center: .init(), span: MKCoordinateSpan(latitudeDelta: 0.5, longitudeDelta: 0.5))
+    @State var region = MKCoordinateRegion(center: .init(),
+                                           span: MKCoordinateSpan(latitudeDelta: 0.5,
+                                                                  longitudeDelta: 0.5))
     @State private var locations = [TemperatureAnnotation]()
-    
     var body: some View {
         VStack {
-            Map(coordinateRegion: $region, interactionModes: .all, showsUserLocation: true, annotationItems: locations) { anotation in
-                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: anotation.latitude, longitude: anotation.longitude)) {
+            Map(coordinateRegion: $region, interactionModes: .all,
+                showsUserLocation: true, annotationItems: locations) { anotation in
+                MapAnnotation(coordinate: CLLocationCoordinate2D(latitude: anotation.latitude,
+                                                                 longitude: anotation.longitude)) {
                     ZStack {
                         Circle()
                              .fill(Color.accentColor)
@@ -29,9 +31,11 @@ struct MapView: View {
                     }
                 }
             }.frame(height: 200, alignment: .center)
-        }.onAppear() {
+        }.onAppear {
             region.center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
-            let newLocation = TemperatureAnnotation(temperature: currentWeather.tempreture, latitude: region.center.latitude, longitude: region.center.longitude)
+            let newLocation = TemperatureAnnotation(temperature: currentWeather.tempreture,
+                                                    latitude: region.center.latitude,
+                                                    longitude: region.center.longitude)
             locations.append(newLocation)
         }
         .background(Color.accentColor)

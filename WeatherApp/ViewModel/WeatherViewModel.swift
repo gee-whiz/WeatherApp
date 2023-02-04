@@ -9,32 +9,26 @@ import Foundation
 import CoreLocation
 import SwiftUI
 
-
 /* The WeatherViewModel class is the main entry point for displaying weather information in the app.
 This class acts as a bridge between the WeatherRepository and the Views.
  It is responsible for managing the state of the weather data, location, and error messages.
  */
 
 class WeatherViewModel: NSObject, ObservableObject {
-    
     @Published var currentWeather: CurrentWeatherViewModel?
     @Published var location: LocationViewModel?
     @Published var todayWeather: [HourlyViewModel] = []
     @Published var forecastWeather = [DailyForecastViewModel]()
     @Published var errorMessage: String = ""
     @Published var viewState: ViewState = .initial
-    
     private let weatherRepository: WeatherRepositoryProtocol
     private let locationManager = LocationManager()
-    
     init(weatherRepository: WeatherRepositoryProtocol = WeatherRepository()) {
         self.weatherRepository = weatherRepository
         super.init()
         locationManager.delegate = self
         locationManager.requestLocation()
     }
-    
-    
     /* Method to get the weather for the given coordinates.
      - Parameter coordinates: The coordinates of the location for which to get the weather.
      */
@@ -49,7 +43,6 @@ class WeatherViewModel: NSObject, ObservableObject {
             }
         }
     }
-    
     private func processWeatherData(_ weather: Weather) {
         Task { @MainActor in
             currentWeather = CurrentWeatherViewModel(currentWeather: weather.current)
@@ -63,14 +56,12 @@ class WeatherViewModel: NSObject, ObservableObject {
             location = LocationViewModel.init(location: weather.location)
         }
     }
-    
     private func processErrorState(_  error: Error) {
         Task { @MainActor in
             self.errorMessage = fetchWeatherError
             self.viewState = .failure
         }
     }
-    
 }
 
 extension WeatherViewModel: LocationManagerDelegate {
@@ -78,12 +69,10 @@ extension WeatherViewModel: LocationManagerDelegate {
         guard let currentLocation = locations.last else { return }
         Task { await self.getWeather(currentLocation.coordinate) }
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         self.errorMessage = updateLocationError
         self.viewState = .failure
     }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         manager.startUpdatingLocation()
     }

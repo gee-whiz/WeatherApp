@@ -12,7 +12,7 @@ struct ConditionItemView: View {
     var iconName: String
     var subTitle: LocalizedStringKey
     var body: some View {
-        HStack() {
+        HStack {
             VStack(alignment: .center) {
                 Image(systemName: iconName)
                     .foregroundColor(.white)
@@ -32,4 +32,3 @@ struct ConditionItemView: View {
         }
     }
 }
-

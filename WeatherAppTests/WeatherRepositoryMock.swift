@@ -11,7 +11,6 @@ import Foundation
 class WeatherRepositoryMock: WeatherRepositoryProtocol {
     var weatherResult: Result<Weather, Error>!
     var fetchForecastLocation: String?
-    
     func fetchForecast(location: String, completion: @escaping (Result<Weather, Error>) -> Void) {
         fetchForecastLocation = location
         completion(weatherResult)

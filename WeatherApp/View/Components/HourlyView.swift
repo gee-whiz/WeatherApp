@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct HourlyView: View {
-    
     var hours: [HourlyViewModel]
-    
     var body: some View {
         ScrollView(.horizontal) {
             LazyHStack {
@@ -32,10 +30,8 @@ struct HourlyView: View {
                     .background(Color.accentColor)
                         .cornerRadius(8)
                         .shadow(color: Color.gray.opacity(0.2), radius: 2, x: 0, y: 0)
-                       
                 }
             }
         }
     }
 }
-

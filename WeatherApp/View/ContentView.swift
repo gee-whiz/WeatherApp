@@ -8,9 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     @ObservedObject private var weatherViewModel = WeatherViewModel()
-    
     var body: some View {
         NavigationView {
             ScrollView(.vertical) {
@@ -32,4 +30,3 @@ struct ContentView: View {
         .preferredColorScheme(.dark)
     }
 }
-

@@ -11,7 +11,6 @@ import Foundation
  to provide a way to fetch weather forecasts for a given location.
  */
 class WeatherRepository: WeatherRepositoryProtocol {
-    
     /* A function that fetches the weather forecasts for a given location.
         - Parameters:
           - location: The location for which to fetch the weather forecasts.
@@ -25,7 +24,6 @@ class WeatherRepository: WeatherRepositoryProtocol {
         #else
         let apiKey = ProcessInfo.processInfo.environment["API_KEY"]
         #endif
-        
         let queryString = "key=\(apiKey)&q=\(location)&days=5&aqi=no&alerts=no"
         webService.request(
             endpoint: baseUrl,

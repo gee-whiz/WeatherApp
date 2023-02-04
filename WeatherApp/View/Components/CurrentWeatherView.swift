@@ -8,11 +8,9 @@
 import SwiftUI
 
 struct CurrentWeatherView: View {
-    
     var currentWeather: CurrentWeatherViewModel
-    
     var body: some View {
-        HStack() {
+        HStack {
             VStack(alignment: .leading) {
                 Text(currentWeather.tempreture)
                     .font(.largeTitle)

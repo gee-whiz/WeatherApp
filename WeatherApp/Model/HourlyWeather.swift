@@ -13,7 +13,6 @@ struct HourlyWeather: Decodable {
     let tempC: Double
     let isDay: Int
     let condition: Condition
-    
     enum CodingKeys: String, CodingKey {
         case timeEpoch = "time_epoch"
         case time

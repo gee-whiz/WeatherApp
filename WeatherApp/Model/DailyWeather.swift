@@ -15,7 +15,6 @@ struct DailyWeather: Decodable {
     let dailyChanceOfRain: Int?
     let avgtemp: Double?
     let condition: Condition?
-    
     enum CodingKeys: String, CodingKey {
         case maxtempC = "maxtemp_c"
         case mintempC = "mintemp_c"

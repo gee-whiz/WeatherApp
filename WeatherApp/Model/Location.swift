@@ -12,8 +12,6 @@ struct Location: Decodable {
     let lat: Double
     let lon: Double
     let localtime: Int
-   
-    
     enum CodingKeys: String, CodingKey {
         case name
         case lat

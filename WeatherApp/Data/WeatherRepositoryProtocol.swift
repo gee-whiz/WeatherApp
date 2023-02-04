@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 protocol WeatherRepositoryProtocol {
     func fetchForecast(
            location: String,

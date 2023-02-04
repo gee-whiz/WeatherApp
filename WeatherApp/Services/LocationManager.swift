@@ -17,24 +17,19 @@ protocol LocationManagerDelegate: AnyObject {
 }
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
-    
     weak var delegate: LocationManagerDelegate?
     private let locationManager = CLLocationManager()
-    
     func requestLocation() {
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
     }
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         delegate?.locationManager(manager, didUpdateLocations: locations)
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         delegate?.locationManager(manager, didFailWithError: error)
     }
-    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         delegate?.locationManager(manager, didChangeAuthorization: status)
     }
