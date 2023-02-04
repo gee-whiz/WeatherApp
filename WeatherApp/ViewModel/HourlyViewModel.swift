@@ -15,7 +15,7 @@ class HourlyViewModel: Identifiable {
     }
 
     var tempreture: String {
-        return "\(String(weather.tempC))°C"
+        return "\(String(format: "%.0f", weather.tempC))°C"
     }
     var time: String {
         let date = Date.dateFromEpoch(dateEpoch: weather.timeEpoch)

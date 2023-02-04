@@ -28,7 +28,11 @@ final class WebService: WebServiceProtocol {
         if let query = query {
             urlString += "?" + query
         }
-        let url = URL(string: urlString)!
+        guard let url = URL(string: urlString) else {
+            let error = NSError(domain: "WebService", code: 0,
+                                userInfo: [NSLocalizedDescriptionKey: "missing url"])
+            return completion(.failure(error))
+        }
         var request = URLRequest(url: url)
         request.httpMethod = method
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")

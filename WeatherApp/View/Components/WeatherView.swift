@@ -21,7 +21,7 @@ struct WeatherView: View {
         Picker(selection: $selectedOption, label: Text("")) {
             Text("today").tag(0) // localised string
             Text("forecast").tag(1)
-        }
+        }.background(Color.accentColor)
         .pickerStyle(SegmentedPickerStyle())
         .padding()
         if selectedOption == 0 {
