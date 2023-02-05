@@ -8,7 +8,6 @@
 import Foundation
 import CoreLocation
 import MapKit
-import SwiftUI
 
 protocol LocationManagerDelegate: AnyObject {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])

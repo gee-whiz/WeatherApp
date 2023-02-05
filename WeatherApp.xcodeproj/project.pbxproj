@@ -790,8 +790,8 @@
 				DEVELOPMENT_TEAM = DF9B9P2SM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to get current weather";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to get current weather";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires your location data to provide accurate weather information. Your location data will only be used while the app is in use.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location data to provide accurate weather information. Your location data will only be used while the app is in use.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -822,8 +822,8 @@
 				DEVELOPMENT_TEAM = DF9B9P2SM8;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Used to get current weather";
-				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Used to get current weather";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app requires your location data to provide accurate weather information. Your location data will only be used while the app is in use.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app requires your location data to provide accurate weather information. Your location data will only be used while the app is in use.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

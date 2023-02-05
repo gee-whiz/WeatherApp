@@ -17,3 +17,5 @@
 "max" = "Max";
 "loading" = "Loading...";
 
+"update_location_error" = "Failed to update location";
+"fetch_weather_error" = "Failed to fetch weather data";

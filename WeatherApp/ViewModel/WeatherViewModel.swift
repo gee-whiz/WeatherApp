@@ -20,7 +20,7 @@ class WeatherViewModel: NSObject, ObservableObject {
     @Published var location: LocationViewModel?
     @Published var todayWeather: [HourlyViewModel] = []
     @Published var forecastWeather = [DailyForecastViewModel]()
-    @Published var errorMessage: String = ""
+    @Published var errorMessage: LocalizedStringKey = ""
     @Published var viewState: ViewState = .initial
 
     private let weatherRepository: WeatherRepositoryProtocol
@@ -52,7 +52,7 @@ class WeatherViewModel: NSObject, ObservableObject {
             currentWeather = CurrentWeatherViewModel(currentWeather: weather.current)
             errorMessage = ""
             self.viewState = .loaded
-            let today =  weather.forecast.forecastday[0].hour.filter {
+            let today = weather.forecast.forecastday[0].hour.filter {
                 $0.isDay == 0
             }
             todayWeather = today.map(HourlyViewModel.init)
@@ -63,7 +63,7 @@ class WeatherViewModel: NSObject, ObservableObject {
 
     private func processErrorState(_  error: Error) {
         Task { @MainActor in
-            self.errorMessage = fetchWeatherError
+            self.errorMessage = "fetch_weather_error"
             self.viewState = .failure
         }
     }
@@ -77,7 +77,7 @@ extension WeatherViewModel: LocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        self.errorMessage = updateLocationError
+        self.errorMessage = "update_location_error"
         self.viewState = .failure
     }
 

@@ -17,7 +17,7 @@ struct ContentView: View {
                 VStack(alignment: .leading) {
                     switch weatherViewModel.viewState {
                     case .initial:
-                        ProgressView("loading") // localised string
+                        ProgressView("loading")
                     case .failure:
                         Text(weatherViewModel.errorMessage)
                             .foregroundColor(.primary)
