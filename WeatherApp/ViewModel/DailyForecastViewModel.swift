@@ -48,9 +48,9 @@ class DailyForecastViewModel: Identifiable {
         }
         return "-"
     }
-    var sliderPosition: Double {
-        return ((forecastWeather.day.avgtemp ?? 0) - forecastWeather.day.mintempC) /
-        (forecastWeather.day.maxtempC - forecastWeather.day.mintempC)
+    var temperatureRange: Double {
+        return ((forecastWeather.day.avgtemp ?? 0) - forecastWeather.day.mintempC)
+        / (forecastWeather.day.maxtempC - forecastWeather.day.mintempC)
     }
     var iconUrl: String {
         if let condition = forecastWeather.day.condition {

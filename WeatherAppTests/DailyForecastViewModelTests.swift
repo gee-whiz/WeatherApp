@@ -32,6 +32,6 @@ final class DailyForecastViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.avgTemp, "2°C")
         XCTAssertEqual(viewModel.humidity, "0%")
         XCTAssertEqual(viewModel.condition, "cloudy")
-        XCTAssertEqual(viewModel.sliderPosition, 0.5)
+        XCTAssertEqual(viewModel.temperatureRange, 0.5)
     }
 }

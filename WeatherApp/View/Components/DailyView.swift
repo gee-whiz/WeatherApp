@@ -29,7 +29,7 @@ struct DailyView: View {
                             .font(.footnote)
                             .fontWeight(.bold)
                             .foregroundColor(.primary)
-                        ProgressView(value: forecast.sliderPosition)
+                        ProgressView(value: (forecast.temperatureRange), total: 1)
                             .frame(width: 40).tint(Color.blue)
                         Text(String(forecast.maxTemp))
                             .font(.footnote)
