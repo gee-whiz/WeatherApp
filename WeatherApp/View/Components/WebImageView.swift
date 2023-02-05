@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct WebImageView: View {
+
     var urlString: String
+
     var body: some View {
         AsyncImage(url: URL(string: urlString)) { phase in
             switch phase {

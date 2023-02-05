@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct ConditionItemView: View {
+
     var title: String
     var iconName: String
     var subTitle: LocalizedStringKey
+
     var body: some View {
         HStack {
             VStack(alignment: .center) {

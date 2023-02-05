@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct WeatheDetailView: View {
+
     var forecastWeather: DailyForecastViewModel
     @Environment(\.dismiss) var dismiss
+
     var body: some View {
         ZStack {
             LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)

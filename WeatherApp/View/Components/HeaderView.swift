@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct HeaderView: View {
+
     @State var location: LocationViewModel
     @Binding var selectedOption: Int
+
     var body: some View {
         HStack(alignment: .firstTextBaseline) {
             VStack(alignment: .leading) {

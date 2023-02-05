@@ -8,9 +8,11 @@
 import SwiftUI
 
 struct DailyView: View {
+
     var forecastWeather: [DailyForecastViewModel]
     @State private var text: String = ""
     @State private var selectedForecast: DailyForecastViewModel?
+
     var body: some View {
         LazyVStack {
             ForEach(forecastWeather, id: \.id) {  forecast in

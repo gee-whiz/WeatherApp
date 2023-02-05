@@ -9,12 +9,14 @@ import SwiftUI
 import MapKit
 
 struct MapView: View {
+
     @State var location: LocationViewModel
     @State var currentWeather: CurrentWeatherViewModel
     @State var region = MKCoordinateRegion(center: .init(),
                                            span: MKCoordinateSpan(latitudeDelta: 0.5,
                                                                   longitudeDelta: 0.5))
     @State private var locations = [TemperatureAnnotation]()
+
     var body: some View {
         VStack {
             Map(coordinateRegion: $region, interactionModes: .all,
@@ -30,8 +32,9 @@ struct MapView: View {
                              .foregroundColor(.white)
                     }
                 }
-            }.frame(height: 200, alignment: .center)
-        }.onAppear {
+            }.frame(height: 200, alignment: .center).padding(4)
+        }
+        .onAppear {
             region.center = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
             let newLocation = TemperatureAnnotation(temperature: currentWeather.tempreture,
                                                     latitude: region.center.latitude,
@@ -40,7 +43,7 @@ struct MapView: View {
         }
         .background(Color.accentColor)
                 .cornerRadius(8)
-                .shadow(color: Color.gray.opacity(0.2), radius: 2, x: 0, y: 0)
+                .shadow(color: Color.accentColor, radius: 2, x: 0, y: 0)
     }
 }
 

@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct ConditionView: View {
+
     var currentWeather: CurrentWeatherViewModel
+
     var body: some View {
         ZStack {
             HStack {

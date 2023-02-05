@@ -18,7 +18,7 @@ final class HourlyViewModelUnitTest: XCTestCase {
                 condition: Condition(text: "Cloudy", icon: "//cdn.weatherapi.com/weather/64x64/day/119.png", code: 3)
             )
             let viewModel = HourlyViewModel(weather: weather)
-            XCTAssertEqual(viewModel.tempreture, "-3.0°C")
+            XCTAssertEqual(viewModel.tempreture, "-3°C")
             XCTAssertEqual(viewModel.time, "2 AM")
             XCTAssertEqual(viewModel.iconUrl, "https://cdn.weatherapi.com/weather/64x64/day/119.png")
         }

@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct WeatherView: View {
+
     var weatherViewModel: WeatherViewModel
     @State private var selectedOption = 0
+
     var body: some View {
         if let location = weatherViewModel.location {
             HeaderView(location: location, selectedOption: $selectedOption)

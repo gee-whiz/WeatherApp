@@ -11,7 +11,6 @@
 		5E0B5250298E63DD00BA319F /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0B524F298E63DD00BA319F /* WeatherView.swift */; };
 		5E0B5252298E682700BA319F /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0B5251298E682700BA319F /* LocationManager.swift */; };
 		5E0B5256298EA4B900BA319F /* LocationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E0B5255298EA4B900BA319F /* LocationViewModel.swift */; };
-		5E0B5257298EB63D00BA319F /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA84031298D967F00A76306 /* MapView.swift */; };
 		5E1F6D6F298C4DBD0043751D /* WeatherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D6E298C4DBD0043751D /* WeatherViewModel.swift */; };
 		5E1F6D72298C6C3F0043751D /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D71298C6C3F0043751D /* Constants.swift */; };
 		5E1F6D75298C70630043751D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D74298C70630043751D /* HeaderView.swift */; };
@@ -19,6 +18,9 @@
 		5E1F6D79298C74680043751D /* ConditionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D78298C74680043751D /* ConditionView.swift */; };
 		5E1F6D7B298C74B10043751D /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D7A298C74B10043751D /* DailyView.swift */; };
 		5E1F6D7D298C74C70043751D /* HourlyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E1F6D7C298C74C70043751D /* HourlyView.swift */; };
+		5E394B9C298F9BCA0034A15E /* testWeatherData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E394B9B298F9BCA0034A15E /* testWeatherData.swift */; };
+		5E394B9E298F9CAC0034A15E /* DailyForecastViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E394B9D298F9CAC0034A15E /* DailyForecastViewModelTests.swift */; };
+		5E394BA0298FA0850034A15E /* DateExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E394B9F298FA0850034A15E /* DateExtensionTests.swift */; };
 		5E4C3359298C2B2D00D45F98 /* WeatherAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C3358298C2B2D00D45F98 /* WeatherAppApp.swift */; };
 		5E4C335B298C2B2D00D45F98 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C335A298C2B2D00D45F98 /* ContentView.swift */; };
 		5E4C335D298C2B3000D45F98 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E4C335C298C2B3000D45F98 /* Assets.xcassets */; };
@@ -37,8 +39,6 @@
 		5E4C339A298C38E000D45F98 /* HourlyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C3399298C38E000D45F98 /* HourlyWeather.swift */; };
 		5E4C339C298C390200D45F98 /* DailyWeather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C339B298C390200D45F98 /* DailyWeather.swift */; };
 		5E4C339E298C391D00D45F98 /* ForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E4C339D298C391D00D45F98 /* ForecastDay.swift */; };
-		5E4C33A4298C3E3000D45F98 /* OHHTTPStubs in Frameworks */ = {isa = PBXBuildFile; productRef = 5E4C33A3298C3E3000D45F98 /* OHHTTPStubs */; };
-		5E4C33A6298C3E3000D45F98 /* OHHTTPStubsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5E4C33A5298C3E3000D45F98 /* OHHTTPStubsSwift */; };
 		5EA84015298CFB1E00A76306 /* Extension+Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA84014298CFB1E00A76306 /* Extension+Image.swift */; };
 		5EA84017298D14EE00A76306 /* Extension+Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5EA84016298D14EE00A76306 /* Extension+Date.swift */; };
 		5EA8401A298D218500A76306 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5EA8401C298D218500A76306 /* Localizable.strings */; };
@@ -93,6 +93,9 @@
 		5E1F6D78298C74680043751D /* ConditionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionView.swift; sourceTree = "<group>"; };
 		5E1F6D7A298C74B10043751D /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		5E1F6D7C298C74C70043751D /* HourlyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyView.swift; sourceTree = "<group>"; };
+		5E394B9B298F9BCA0034A15E /* testWeatherData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testWeatherData.swift; sourceTree = "<group>"; };
+		5E394B9D298F9CAC0034A15E /* DailyForecastViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastViewModelTests.swift; sourceTree = "<group>"; };
+		5E394B9F298FA0850034A15E /* DateExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExtensionTests.swift; sourceTree = "<group>"; };
 		5E4C3355298C2B2D00D45F98 /* WeatherApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WeatherApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E4C3358298C2B2D00D45F98 /* WeatherAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAppApp.swift; sourceTree = "<group>"; };
 		5E4C335A298C2B2D00D45F98 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -140,8 +143,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E4C33A4298C3E3000D45F98 /* OHHTTPStubs in Frameworks */,
-				5E4C33A6298C3E3000D45F98 /* OHHTTPStubsSwift in Frameworks */,
 				EF7D6C97496F1D6C2FD884C0 /* Pods_WeatherApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -205,6 +206,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		5E394B9A298F9BB70034A15E /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				5EA8402F298D927E00A76306 /* WeatherRepositoryMock.swift */,
+				5E394B9B298F9BCA0034A15E /* testWeatherData.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
 		5E4C334C298C2B2D00D45F98 = {
 			isa = PBXGroup;
 			children = (
@@ -254,12 +264,14 @@
 		5E4C3368298C2B3000D45F98 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				5E394B9A298F9BB70034A15E /* Mocks */,
+				5E394B9D298F9CAC0034A15E /* DailyForecastViewModelTests.swift */,
 				5E4C338F298C34C600D45F98 /* WebServiceTests.swift */,
 				5EA84021298D33E700A76306 /* CurrentWeatherViewModelTests.swift */,
 				5EA84027298D5AEC00A76306 /* HourlyViewModelUnitTest.swift */,
 				5EA8402D298D922B00A76306 /* WeatherViewModelTests.swift */,
-				5EA8402F298D927E00A76306 /* WeatherRepositoryMock.swift */,
 				5EA84033298D97B100A76306 /* WeatherRepositoryTests.swift */,
+				5E394B9F298FA0850034A15E /* DateExtensionTests.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -357,8 +369,6 @@
 			);
 			name = WeatherApp;
 			packageProductDependencies = (
-				5E4C33A3298C3E3000D45F98 /* OHHTTPStubs */,
-				5E4C33A5298C3E3000D45F98 /* OHHTTPStubsSwift */,
 			);
 			productName = WeatherApp;
 			productReference = 5E4C3355298C2B2D00D45F98 /* WeatherApp.app */;
@@ -436,7 +446,6 @@
 			);
 			mainGroup = 5E4C334C298C2B2D00D45F98;
 			packageReferences = (
-				5E4C33A2298C3E3000D45F98 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */,
 			);
 			productRefGroup = 5E4C3356298C2B2D00D45F98 /* Products */;
 			projectDirPath = "";
@@ -607,13 +616,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E0B5257298EB63D00BA319F /* MapView.swift in Sources */,
 				5EA84034298D97B100A76306 /* WeatherRepositoryTests.swift in Sources */,
+				5E394BA0298FA0850034A15E /* DateExtensionTests.swift in Sources */,
 				5EA84028298D5AEC00A76306 /* HourlyViewModelUnitTest.swift in Sources */,
 				5EA84030298D927E00A76306 /* WeatherRepositoryMock.swift in Sources */,
 				5EA8402E298D922B00A76306 /* WeatherViewModelTests.swift in Sources */,
 				5EA84022298D33E700A76306 /* CurrentWeatherViewModelTests.swift in Sources */,
+				5E394B9C298F9BCA0034A15E /* testWeatherData.swift in Sources */,
 				5E4C3390298C34C600D45F98 /* WebServiceTests.swift in Sources */,
+				5E394B9E298F9CAC0034A15E /* DailyForecastViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -952,30 +963,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		5E4C33A2298C3E3000D45F98 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/AliSoftware/OHHTTPStubs";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		5E4C33A3298C3E3000D45F98 /* OHHTTPStubs */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E4C33A2298C3E3000D45F98 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubs;
-		};
-		5E4C33A5298C3E3000D45F98 /* OHHTTPStubsSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5E4C33A2298C3E3000D45F98 /* XCRemoteSwiftPackageReference "OHHTTPStubs" */;
-			productName = OHHTTPStubsSwift;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5E4C334D298C2B2D00D45F98 /* Project object */;
 }

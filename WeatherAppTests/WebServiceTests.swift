@@ -35,5 +35,4 @@ final class WebServiceTests: XCTestCase {
          }
          waitForExpectations(timeout: 5, handler: nil)
      }
-
 }

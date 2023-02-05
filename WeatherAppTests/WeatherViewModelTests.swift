@@ -25,21 +25,26 @@ final class WeatherViewModelTests: XCTestCase {
         super.tearDown()
     }
     func testGetWeather() async {
-        let weatherData = createWeatherData()
-        weatherRepositoryMock.weatherResult = .success(weatherData)
-        let coordinates = CLLocationCoordinate2D(latitude: 37.3352, longitude: -122.0307)
-        await sut.getWeather(coordinates)
-        XCTAssertEqual(weatherRepositoryMock.fetchForecastLocation, "37.3352,-122.0307")
-        XCTAssertEqual(sut.todayWeather.count, 0)
-    }
-    private func createWeatherData() -> Weather {
-        return Weather(location: Location(name: "Helsinki",
-                                          lat: 2, lon: 3,
-                                          localtime: 677),
-                       current: CurrentWeather(tempC: 14, isDay: 0,
-                       condition: Condition(text: "",
-                                            icon: "", code: 0),
-                                               windMph: 2, humidity: 4, precip: 5),
-                       forecast: Forecast(forecastday: []))
+       
+        let weatherData: Weather
+
+        if let data = testWeatherData.data(using: .utf8) {
+            do {
+                weatherData = try JSONDecoder().decode(Weather.self, from: data)
+                weatherRepositoryMock.weatherResult = .success(weatherData)
+                let coordinates = CLLocationCoordinate2D(latitude: 37.3352, longitude: -122.0307)
+                await sut.getWeather(coordinates)
+                XCTAssertEqual(weatherRepositoryMock.fetchForecastLocation, "37.3352,-122.0307")
+                XCTAssertEqual(sut.todayWeather.count, 0)
+            } catch {
+              XCTFail("Error decoding weather data: \(error)")
+            }
+        } else {
+            XCTFail("Error converting testWeatherData to Data")
+        }
+
+
+      
     }
 }
+

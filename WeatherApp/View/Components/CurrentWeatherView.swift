@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct CurrentWeatherView: View {
+
     var currentWeather: CurrentWeatherViewModel
+
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
