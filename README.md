@@ -1,7 +1,7 @@
 # WeatherApp
 
 # Introduction:
-This document provides a brief overview of the Weather iOS App, which allows users to check the current weather and forecast for their location. The app consumes data from a weather API to display accurate weather information.
+This document provides a brief overview of the Weather iOS App, which allows users to check the current weather and forecast for their location. The app consumes data from a [weather API](https://www.weatherapi.com) to display accurate weather information.
 
 ## Prerequisites:
 
