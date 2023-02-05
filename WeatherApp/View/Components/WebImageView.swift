@@ -12,17 +12,14 @@ struct WebImageView: View {
     var urlString: String
 
     var body: some View {
-        AsyncImage(url: URL(string: urlString)) { phase in
-            switch phase {
-            case .success(let image):
-                image
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: 50)
-                    .tint(.white)
-            default:
-                Image("")
-            }
+        AsyncImage(url: URL(string: urlString)) { image in
+            image
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: 50)
+                .tint(.white)
+        } placeholder: {
+            ProgressView()
         }
     }
 }

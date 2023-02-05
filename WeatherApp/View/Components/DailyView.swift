@@ -15,7 +15,7 @@ struct DailyView: View {
 
     var body: some View {
         LazyVStack {
-            ForEach(forecastWeather, id: \.id) {  forecast in
+            ForEach(forecastWeather) {  forecast in
                 HStack {
                     Button(action: {
                         self.selectedForecast = forecast
@@ -40,7 +40,6 @@ struct DailyView: View {
                 }
                 .padding(16)
                 Divider()
-
             }.sheet(item: $selectedForecast) { forecast in
                 WeatheDetailView(forecastWeather: forecast)
             }

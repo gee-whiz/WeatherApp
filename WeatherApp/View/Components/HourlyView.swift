@@ -14,7 +14,7 @@ struct HourlyView: View {
     var body: some View {
         ScrollView(.horizontal) {
             LazyHStack {
-                ForEach(hours, id: \.id) {  hour in
+                ForEach(hours) {  hour in
                     VStack {
                         Text(hour.time)
                             .font(.footnote)
