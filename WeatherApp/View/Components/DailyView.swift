@@ -17,27 +17,30 @@ struct DailyView: View {
         LazyVStack {
             ForEach(forecastWeather, id: \.id) {  forecast in
                 HStack {
-                    Text( String(forecast.day))
-                        .font(.footnote)
-                        .fontWeight(.light)
-                        .foregroundColor(.primary)
-                    Spacer()
-                    Text(String(forecast.minTemp))
-                        .font(.footnote)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                    ProgressView(value: forecast.sliderPosition, total: 100)
-                        .frame(width: 40).tint(Color.blue)
-                    Text(String(forecast.maxTemp))
-                        .font(.footnote)
-                        .fontWeight(.bold)
-                        .foregroundColor(.primary)
-                    WebImageView(urlString: forecast.iconUrl)
-                }.padding(16)
-                    .onTapGesture {
+                    Button(action: {
                         self.selectedForecast = forecast
+                    }) {
+                        Text( String(forecast.day))
+                            .font(.footnote)
+                            .fontWeight(.light)
+                            .foregroundColor(.primary)
+                        Spacer()
+                        Text(String(forecast.minTemp))
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        ProgressView(value: forecast.sliderPosition, total: 100)
+                            .frame(width: 40).tint(Color.blue)
+                        Text(String(forecast.maxTemp))
+                            .font(.footnote)
+                            .fontWeight(.bold)
+                            .foregroundColor(.primary)
+                        WebImageView(urlString: forecast.iconUrl)
                     }
+                }
+                .padding(16)
                 Divider()
+
             }.sheet(item: $selectedForecast) { forecast in
                 WeatheDetailView(forecastWeather: forecast)
             }

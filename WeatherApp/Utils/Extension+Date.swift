@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    
+
     static func dateFromEpoch(dateEpoch: Int) -> Date {
         return Date(timeIntervalSince1970: TimeInterval(dateEpoch))
     }
@@ -24,14 +24,14 @@ extension Date {
             return day.localizedCapitalized
         }
     }
-    
+
     func humanReadableDate() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd, MMM, EEEE"
         let date = dateFormatter.string(from: self)
         return date.localizedCapitalized
     }
-    
+
     func humanReadableHour() -> String {
            let dateFormatter = DateFormatter()
            dateFormatter.dateFormat = "h a"

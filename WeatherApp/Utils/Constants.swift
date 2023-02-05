@@ -9,4 +9,3 @@ import Foundation
 
 let debugApiKey = "29f5c638cc134e1b966153149230202"
 let baseUrl = "https://api.weatherapi.com/v1/forecast.json"
-
