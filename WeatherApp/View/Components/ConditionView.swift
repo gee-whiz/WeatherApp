@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ConditionView: View {
 
-    var currentWeather: CurrentWeatherViewModel
+    @State var currentWeather: CurrentWeatherViewModel
 
     var body: some View {
         ZStack {
@@ -28,6 +28,5 @@ struct ConditionView: View {
                 .shadow(color: Color.gray.opacity(0.2), radius: 2, x: 0, y: 0)
         }
         .frame(maxWidth: .infinity)
-        .padding(16)
     }
 }

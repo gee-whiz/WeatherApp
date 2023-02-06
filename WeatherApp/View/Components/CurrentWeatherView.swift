@@ -27,6 +27,6 @@ struct CurrentWeatherView: View {
             }
             Spacer()
             WebImageView(urlString: currentWeather.iconUrl)
-        }.padding()
+        }.padding(.bottom)
     }
 }

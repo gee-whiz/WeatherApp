@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct WeatheDetailView: View {
-
+    
     var forecastWeather: DailyForecastViewModel
     @Environment(\.dismiss) var dismiss
-
+    
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.black, .gray]), startPoint: .top, endPoint: .bottom)
+            LinearGradient(gradient: Gradient(colors: [.accentColor, .gray]), startPoint: .top, endPoint: .bottom)
                 .edgesIgnoringSafeArea(.all)
             VStack(alignment: .center) {
                 HStack {
@@ -27,15 +27,15 @@ struct WeatheDetailView: View {
                     Button {
                         dismiss()
                     } label: {
-                        Image(systemName: "xmark")
+                        Image(systemName: "xmark.app.fill")
                             .tint(.white)
                             .font(.title)
                     }
-                }
+                }.padding(.vertical)
                 CircleGradient(gradient: LinearGradient(
-                           gradient: Gradient(colors: [.white, .black]),
-                           startPoint: .topLeading,
-                           endPoint: .bottomTrailing
+                    gradient: Gradient(colors: [.accentColor, .white]),
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
                 ), title: forecastWeather.iconUrl)
                 VStack(alignment: .center) {
                     Text(forecastWeather.avgTemp)
@@ -47,8 +47,11 @@ struct WeatheDetailView: View {
                         .fontWeight(.light)
                         .foregroundColor(.white)
                         .multilineTextAlignment(.center)
-                }
-                Divider()
+                }.padding(.vertical)
+                Spacer().frame(height: 20)
+                DashLine()
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [10, 5]))
+                    .frame(height: 1)
                 HStack {
                     VStack {
                         Text("humidity")
@@ -76,7 +79,9 @@ struct WeatheDetailView: View {
                             .multilineTextAlignment(.center)
                     }
                 }
-                Divider()
+                DashLine()
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [10, 5]))
+                    .frame(height: 1)
                 HStack {
                     VStack {
                         Text("min")
@@ -104,9 +109,11 @@ struct WeatheDetailView: View {
                             .multilineTextAlignment(.center)
                     }
                 }
-                Divider()
+                DashLine()
+                    .stroke(style: StrokeStyle(lineWidth: 1, dash: [10, 5]))
+                    .frame(height: 1)
                 Spacer()
-            }.padding(32)
+            }.padding(.horizontal)
         }
     }
 }
@@ -127,5 +134,14 @@ struct CircleGradient: View {
             .frame(width: 100, height: 100)
             WebImageView(urlString: title)
         }
+    }
+}
+
+struct DashLine: Shape {
+    func path(in rect: CGRect) -> Path {
+        var path = Path()
+        path.move(to: CGPoint(x: 0, y: rect.midY))
+        path.addLine(to: CGPoint(x: rect.width, y: rect.midY))
+        return path
     }
 }

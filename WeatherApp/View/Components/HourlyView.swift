@@ -9,7 +9,7 @@ import SwiftUI
 
 struct HourlyView: View {
 
-    var hours: [HourlyViewModel]
+    @State var hours: [HourlyViewModel]
 
     var body: some View {
         ScrollView(.horizontal) {

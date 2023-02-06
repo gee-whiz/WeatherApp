@@ -26,8 +26,7 @@ struct ContentView: View {
                         WeatherView(weatherViewModel: weatherViewModel)
                     }
                 }
-                .padding()
-            }
+            }.padding(.horizontal)
         }
         .preferredColorScheme(.dark)
     }

@@ -14,7 +14,6 @@ This class acts as a bridge between the WeatherRepository and the Views.
  It is responsible for managing the state of the weather data, location, and error messages.
  */
 
-@MainActor
 class WeatherViewModel: NSObject, ObservableObject {
 
     @Published var currentWeather: CurrentWeatherViewModel?

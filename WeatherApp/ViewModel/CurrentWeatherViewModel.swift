@@ -8,7 +8,9 @@
 import Foundation
 
 class CurrentWeatherViewModel {
+
     private var currentWeather: CurrentWeather
+
     init(currentWeather: CurrentWeather) {
         self.currentWeather = currentWeather
     }
