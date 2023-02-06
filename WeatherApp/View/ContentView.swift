@@ -12,7 +12,6 @@ struct ContentView: View {
     @ObservedObject private var weatherViewModel = WeatherViewModel()
 
     var body: some View {
-        NavigationView {
             ScrollView(.vertical) {
                 VStack(alignment: .leading) {
                     switch weatherViewModel.viewState {
@@ -27,7 +26,6 @@ struct ContentView: View {
                     }
                 }
             }.padding(.horizontal)
-        }
         .preferredColorScheme(.dark)
     }
 }
